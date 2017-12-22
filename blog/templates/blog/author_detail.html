@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Author: {{ author.name }}</h1>
+<h2>Bio: {{author.information}}</h2>
+<h3> Blog list:
+    {% for blog in author.blog_set.all %}
+    <ul>
+        <li>
+            <dt><a href="{% url 'blog-detail' blog.pk %}">{{blog}}</a>-{{blog.pub_date}}</dt>
+        </li>
+    </ul>
+    {% endfor %}
+</h3>
+
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SB BLOG</title>
+</head>
+<body>
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Blog List</h1>
+
+    {% if blog_list %}
+    <ul>
+
+      {% for blog in blog_list %}
+      <li>
+        <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a> - {{blog.author}}-{{blog.pub_date}}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}
+{% endblock %}
+
+
+</body>
+</html>
